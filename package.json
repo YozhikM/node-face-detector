@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YozhikM/face-recognition.git"
+    "url": "git+https://github.com/YozhikM/node-face-detector.git"
   },
   "keywords": [
     "face",
@@ -19,9 +19,9 @@
   "author": "Stanislav Botev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/YozhikM/face-recognition/issues"
+    "url": "https://github.com/YozhikM/node-face-detector/issues"
   },
-  "homepage": "https://github.com/YozhikM/face-recognition#readme",
+  "homepage": "https://github.com/YozhikM/node-face-detector#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.1",
