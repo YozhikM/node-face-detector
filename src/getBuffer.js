@@ -14,19 +14,19 @@ function createRectangles(imgPath) {
   return faceRectangles;
 }
 
+// $FlowFixMe
 function getBuffer(buffer, scale = 1) {
-  const tmpobj = tmp.fileSync({ prefix: 'face-', postfix: '.jpg' });
+  const tmpobj = tmp.fileSync({ postfix: '.jpg' });
   const tmpName = tmpobj.name;
-  const bufferArray = [];
 
   fs.writeFile(tmpName, buffer, 'binary', err => {
     if (err) console.log(err);
+    console.log('file created');
 
     const faceRectangles = createRectangles(tmpName);
 
     faceRectangles.forEach((fc, i) => {
-      const { rect } = fc || {};
-      const { bottom, top, right, left } = rect || {};
+      const { bottom, top, right, left } = fc.rect || {};
 
       const width = (right - left) * scale;
       const height = (bottom - top) * scale;
@@ -35,19 +35,16 @@ function getBuffer(buffer, scale = 1) {
 
       gm(buffer)
         .crop(width, height, x, y)
-        .toBuffer('JPG', function(err, buffer) {
-          if (err) console.log(err);
-
-          gm(buffer).write(`./images/face${i + 1}.jpg`, function(err) {
-            if (err) console.log(err);
+        .toBuffer('JPG', (error, croppedBuffer) => {
+          if (error) console.log(error);
+          // этого не будет, сделано для проверки
+          gm(croppedBuffer).write(`./images/face${i + 1}.jpg`, () => {
+            console.log(`image #${i + 1} created`);
           });
         });
     });
 
-    fs.unlink(tmpName, err => {
-      if (err) console.log(err);
-      console.log('file deleted');
-    });
+    fs.unlink(tmpName, () => console.log('file deleted'));
   });
 }
 

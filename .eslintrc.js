@@ -4,9 +4,10 @@ module.exports = {
     node: true,
   },
   parser: 'babel-eslint',
-  extends: ['airbnb', 'prettier', 'plugin:flowtype/recommended'],
-  plugins: ['import', 'flowtype', 'prettier', 'immutable', 'array-func'],
+  extends: ['airbnb', 'prettier'],
+  plugins: ['import', 'prettier', 'immutable', 'array-func'],
   rules: {
     'class-methods-use-this': 0,
+    'no-console': 0,
   },
 };
