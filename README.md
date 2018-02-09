@@ -1,11 +1,11 @@
 
 # Node Face Detector
 
-This is an abstraction over one code, written to cut faces from the found coordinates.
+This is node module based on the use of face-recognition.js, written to cut faces from the images.
 
 ## How to use
 
-```
+````js
 git clone https://github.com/YozhikM/node-face-detector.git
 
 yarn
@@ -13,7 +13,7 @@ yarn
 yarn start
 
 yarn build
-```
+````
 
 ## API
 
