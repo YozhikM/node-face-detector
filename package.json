@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --watch src src/index.js",
+    "start": "nodemon --watch lib lib/index.js",
+    "build": "babel --watch src/ -d lib/",
     "lint": "./node_modules/.bin/eslint src/"
   },
   "repository": {
@@ -24,7 +25,9 @@
   "homepage": "https://github.com/YozhikM/node-face-detector#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "eslint": "^4.17.0",
     "eslint-config-airbnb": "^16.1.0",
