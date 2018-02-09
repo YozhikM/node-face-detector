@@ -13,13 +13,13 @@ type RectangleT = {
 function createRectangles(imgPath: string): Array<RectangleT> {
   const image = fr.loadImage(imgPath);
   const detector = fr.FaceDetector();
-  const faceRectangles = detector.locateFaces(image);
+  const faceRectangles: Array<RectangleT> = detector.locateFaces(image);
 
-  if (faceRectangles) console.log('rectangles created');
+  if (faceRectangles.length > 0) console.log('rectangles created');
   return faceRectangles;
 }
 
-function findRecognizableFace(faceRectangles: Array<RectangleT>): ?RectangleT {
+function findRecognizableFace(faceRectangles: Array<RectangleT>): RectangleT {
   return faceRectangles.sort((first, second) => {
     const firstSum = first.confidence * first.rect.area;
     const secondSum = second.confidence * second.rect.area;
@@ -29,32 +29,48 @@ function findRecognizableFace(faceRectangles: Array<RectangleT>): ?RectangleT {
 
 function cropFace(buffer: Buffer, scale: number = 1): Promise<Buffer> {
   return new Promise((resolve, reject) => {
+    if (!Buffer.isBuffer(buffer)) {
+      reject(new Error('provided object is not valid Buffer'));
+    }
+
     const tmpobj = tmp.fileSync({ postfix: '.jpg' });
     const tmpName: string = tmpobj.name;
 
     fs.writeFile(tmpName, buffer, 'binary', err => {
       if (err) {
-        console.error(err);
+        reject(err);
         return;
       }
 
       const faceRectangles = createRectangles(tmpName);
+      if (faceRectangles.length === 0) {
+        reject(new Error('no founded any recognizable face'));
+        return;
+      }
+
+      if (faceRectangles.length > 1) {
+        console.log('more than one face was recognized', faceRectangles.length);
+      }
 
       fs.unlink(tmpName, () => console.log('file deleted'));
 
       const recognizableFace = findRecognizableFace(faceRectangles);
+      if (recognizableFace.confidence < 1) console.log('Bad photo');
 
-      if (!recognizableFace) {
-        console.error('no founded any recognizable face');
-        return;
-      }
-
-      const { bottom, top, right, left } = recognizableFace.rect || {};
+      const { area, bottom, top, right, left } = recognizableFace.rect || {};
+      if (area <= 10000) console.error(`small photo ${area}px`);
 
       const width = (right - left) * scale;
       const height = (bottom - top) * scale;
-      const x = left;
-      const y = top;
+      let x = left;
+      let y = top;
+
+      if (scale) {
+        const xRatio = (width - (right - left)) / scale;
+        const yRatio = (height - (bottom - top)) / scale;
+        x = left - xRatio;
+        y = top - yRatio;
+      }
 
       gm(buffer)
         .crop(width, height, x, y)
