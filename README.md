@@ -1,6 +1,8 @@
 
 # Node Face Detector
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/YozhikM/node-face-detector.svg)](https://greenkeeper.io/)
+
 This is node module based on the use of face-recognition.js, written to cut faces from the images.
 
 ## How to use
