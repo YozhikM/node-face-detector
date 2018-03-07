@@ -10,6 +10,12 @@ This is node module based on the use of https://github.com/justadudewhohacks/fac
 yarn add node-face-detector
 ```
 
+Or
+
+```
+git clone https://github.com/YozhikM/node-face-detector.git
+```
+
 Then run two tasks, because the two Big Brothers (Nodemon and Babel) are watching you in two different folders
 
 ```
