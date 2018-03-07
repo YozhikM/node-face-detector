@@ -2,7 +2,7 @@
   "name": "face-recognition",
   "version": "1.0.0",
   "description": "face recognition",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --watch lib lib/index.js",

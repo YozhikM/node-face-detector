@@ -35,15 +35,20 @@ function getImgAsBuffer(
   });
 }
 
-function getCroppedFace(url: string, scale?: number = 1) {
-  getImgAsBuffer(url)
-    .then(data => {
-      const { buffer, format } = data || {};
-      cropFace(buffer, scale)
-        .then(croppedBuffer => ({ buffer: croppedBuffer, format }))
-        .catch(err => console.error(err));
-    })
-    .catch(err => console.error(err));
+function getCroppedFace(
+  url: string,
+  scale?: number = 1
+): Promise<{ buffer: Buffer, format: string }> {
+  return new Promise((resolve, reject) => {
+    getImgAsBuffer(url)
+      .then(data => {
+        const { buffer, format } = data || {};
+        cropFace(buffer, scale)
+          .then(croppedBuffer => resolve({ buffer: croppedBuffer, format }))
+          .catch(err => reject(err));
+      })
+      .catch(err => reject(err));
+  });
 }
 
 module.exports = getCroppedFace;
