@@ -27,7 +27,7 @@ function findRecognizableFace(faceRectangles: Array<RectangleT>): RectangleT {
   })[0];
 }
 
-function cropFace(buffer: Buffer, scale: number = 1): Promise<Buffer> {
+function cropFace(buffer: Buffer, scale?: number = 1): Promise<Buffer> {
   return new Promise((resolve, reject) => {
     if (!Buffer.isBuffer(buffer)) {
       reject(new Error('provided object is not valid Buffer'));

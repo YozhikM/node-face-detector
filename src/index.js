@@ -1,13 +1,49 @@
 /* @flow */
 
-const fs = require('fs');
-const cropFace = require('./cropFace');
+const fs = require("fs");
+const request = require("request");
+const cropFace = require("./cropFace");
+const getImgFormat = require("./getImgFormat");
 
-const imgPath = './images/34.jpeg';
-const srcBuffer = fs.readFileSync(imgPath);
+function getImgAsBuffer(
+  src: string
+): Promise<{ buffer: Buffer, format: string }> {
+  // if local file
+  if (fs.existsSync(src)) {
+    const srcBuffer = fs.readFileSync(src);
+    const format = getImgFormat(srcBuffer);
 
-cropFace(srcBuffer, 2)
-  .then(buffer => {
-    fs.writeFile('./images/_face_out.jpg', buffer, () => console.log('file writted'));
-  })
-  .catch(err => console.error(err));
+    return Promise.resolve({ buffer: srcBuffer, format });
+  }
+  return new Promise((resolve, reject) => {
+    request(
+      {
+        url: src,
+        method: "GET",
+        encoding: null
+      },
+      (error: Error, response, body: Buffer) => {
+        if (error) {
+          return reject(error);
+        }
+
+        const format = getImgFormat(body);
+
+        return resolve({ buffer: body, format });
+      }
+    );
+  });
+}
+
+function getCroppedFace(url: string, scale?: number = 1) {
+  getImgAsBuffer(url)
+    .then(data => {
+      const { buffer, format } = data || {};
+      cropFace(buffer, scale)
+        .then(croppedBuffer => ({ buffer: croppedBuffer, format }))
+        .catch(err => console.error(err));
+    })
+    .catch(err => console.error(err));
+}
+
+module.exports = getCroppedFace;
