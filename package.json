@@ -1,7 +1,7 @@
 {
-  "name": "face-recognition",
+  "name": "node-face-detector",
   "version": "1.0.0",
-  "description": "face recognition",
+  "description": "node-face-detector",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +15,8 @@
   },
   "keywords": [
     "face",
-    "recognition"
+    "recognition",
+    "node"
   ],
   "author": "Stanislav Botev",
   "license": "MIT",
