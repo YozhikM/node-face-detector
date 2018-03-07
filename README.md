@@ -13,7 +13,7 @@ git clone https://github.com/YozhikM/node-face-detector.git
 yarn
 ```
 
-Then run two teams, because the two Big Brothers (Nodemon and Babel) are watching you in two different folders
+Then run two tasks, because the two Big Brothers (Nodemon and Babel) are watching you in two different folders
 
 ```
 yarn build
