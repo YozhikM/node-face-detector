@@ -7,9 +7,7 @@ This is node module based on the use of https://github.com/justadudewhohacks/fac
 ## How to use
 
 ```
-git clone https://github.com/YozhikM/node-face-detector.git
-
-yarn
+yarn add node-face-detector
 ```
 
 Then run two tasks, because the two Big Brothers (Nodemon and Babel) are watching you in two different folders
