@@ -1,6 +1,7 @@
 # Node Face Detector
 
 [![npm](https://img.shields.io/npm/dt/node-face-detector.svg)](http://www.npmtrends.com/node-face-detector)
+![FlowType compatible](https://img.shields.io/badge/flowtype-compatible-brightgreen.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/YozhikM/node-face-detector.svg)](https://greenkeeper.io/)
 
 This is node module based on the use of [face-recognition.js](https://github.com/justadudewhohacks/face-recognition.js), written to cut faces from the images.
