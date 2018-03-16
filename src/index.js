@@ -1,13 +1,11 @@
 /* @flow */
 
-const fs = require("fs");
-const request = require("request");
-const cropFace = require("./cropFace");
-const getImgFormat = require("./getImgFormat");
+const fs = require('fs');
+const request = require('request');
+const cropFace = require('./cropFace');
+const getImgFormat = require('./getImgFormat');
 
-function getImgAsBuffer(
-  src: string
-): Promise<{ buffer: Buffer, format: string }> {
+function getImgAsBuffer(src: string): Promise<{ buffer: Buffer, format: string }> {
   // if local file
   if (fs.existsSync(src)) {
     const srcBuffer = fs.readFileSync(src);
@@ -19,8 +17,8 @@ function getImgAsBuffer(
     request(
       {
         url: src,
-        method: "GET",
-        encoding: null
+        method: 'GET',
+        encoding: null,
       },
       (error: Error, response, body: Buffer) => {
         if (error) {
@@ -44,7 +42,9 @@ function getCroppedFace(
       .then(data => {
         const { buffer, format } = data || {};
         cropFace(buffer, scale)
-          .then(croppedBuffer => resolve({ buffer: croppedBuffer, format }))
+          .then(croppedBuffer => {
+            resolve({ buffer: croppedBuffer, format });
+          })
           .catch(err => reject(err));
       })
       .catch(err => reject(err));
