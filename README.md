@@ -1,8 +1,6 @@
 # Node Face Detector
 
-[![npm](https://img.shields.io/npm/dt/node-face-detector.svg)](http://www.npmtrends.com/node-face-detector)
 ![FlowType compatible](https://img.shields.io/badge/flowtype-compatible-brightgreen.svg)
-[![Greenkeeper badge](https://badges.greenkeeper.io/YozhikM/node-face-detector.svg)](https://greenkeeper.io/)
 
 This is node module based on the use of [face-recognition.js](https://github.com/justadudewhohacks/face-recognition.js), written to cut faces from the images.
 
@@ -41,10 +39,8 @@ You can not use the image format returned in promise, but I am not responsible f
 
 ```js
 getCroppedFace(
-  "https://almaty.hh.kz/photo/492004920.jpeg?t=1520531261&h=Yerj2GWZtRPEUR6cQFGSjw"
+  'https://almaty.hh.kz/photo/492004920.jpeg?t=1520531261&h=Yerj2GWZtRPEUR6cQFGSjw'
 ).then(({ buffer, format }) =>
-  fs.writeFile(`./images/face_out.${format}`, buffer, () =>
-    console.log("file writted")
-  )
+  fs.writeFile(`./images/face_out.${format}`, buffer, () => console.log('file writted'))
 );
 ```

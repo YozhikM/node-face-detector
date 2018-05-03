@@ -1,6 +1,6 @@
 {
   "name": "node-face-detector",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "node-face-detector",
   "main": "lib/index.js",
   "scripts": {
@@ -24,6 +24,12 @@
     "url": "https://github.com/YozhikM/node-face-detector/issues"
   },
   "homepage": "https://github.com/YozhikM/node-face-detector#readme",
+  "peerDependencies": {
+    "face-recognition": "^0.7.0",
+    "gm": "^1.23.1",
+    "request": "^2.83.0",
+    "tmp": "^0.0.33"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -44,12 +50,10 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.6.1",
     "eslint-plugin-standard": "^3.0.1",
-    "flow-bin": "^0.68.0",
-    "nodemon": "^1.14.12"
-  },
-  "dependencies": {
-    "face-recognition": "^0.7.0",
+    "face-recognition": "^0.9.1",
+    "flow-bin": "^0.71.0",
     "gm": "^1.23.1",
+    "nodemon": "^1.14.12",
     "request": "^2.83.0",
     "tmp": "^0.0.33"
   }
