@@ -5,10 +5,10 @@
 
 ## Requirements
 
-* [face-recognition](https://github.com/justadudewhohacks/face-recognition.js);
-* [gm](https://github.com/aheckmann/gm);
-* [request](https://github.com/request/request);
-* [tmp](https://github.com/raszi/node-tmp).
+* [face-recognition](https://github.com/justadudewhohacks/face-recognition.js)
+* [gm](https://github.com/aheckmann/gm)
+* [request](https://github.com/request/request)
+* [tmp](https://github.com/raszi/node-tmp)
 
 ## How to use
 
