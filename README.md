@@ -3,7 +3,14 @@
 [![install size](https://packagephobia.now.sh/badge?p=node-face-detector@1.0.2)](https://packagephobia.now.sh/result?p=node-face-detector@1.0.2)
 ![FlowType compatible](https://img.shields.io/badge/flowtype-compatible-brightgreen.svg)
 
-This is node module based on the use of [face-recognition.js](https://github.com/justadudewhohacks/face-recognition.js), written to cut faces from the images.
+## Requirements
+
+```bash
+face-recognition: ^0.7.0,
+gm: ^1.23.1,
+request: ^2.83.0,
+tmp: ^0.0.33
+```
 
 ## How to use
 
