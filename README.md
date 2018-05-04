@@ -5,12 +5,10 @@
 
 ## Requirements
 
-```bash
-face-recognition: ^0.7.0,
-gm: ^1.23.1,
-request: ^2.83.0,
-tmp: ^0.0.33
-```
+* face-recognition: ^0.7.0;
+* gm: ^1.23.1;
+* request: ^2.83.0;
+* tmp: ^0.0.33.
 
 ## How to use
 
