@@ -51,7 +51,7 @@
     "eslint-plugin-react": "^7.6.1",
     "eslint-plugin-standard": "^3.0.1",
     "face-recognition": "^0.9.1",
-    "flow-bin": "^0.71.0",
+    "flow-bin": "^0.86.0",
     "gm": "^1.23.1",
     "nodemon": "^1.14.12",
     "request": "^2.83.0",
