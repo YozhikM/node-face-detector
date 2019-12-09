@@ -44,7 +44,7 @@
     "eslint-plugin-flowtype": "^2.42.0",
     "eslint-plugin-flowtype-errors": "^3.3.7",
     "eslint-plugin-immutable": "^1.0.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-promise": "^3.6.0",
