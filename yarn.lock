@@ -1347,9 +1347,10 @@ eslint-module-utils@^2.2.0:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
-eslint-plugin-array-func@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-array-func/-/eslint-plugin-array-func-3.0.0.tgz#915e7af6bedefe7e1aff2533b3dbf56fff69a5d2"
+eslint-plugin-array-func@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-array-func/-/eslint-plugin-array-func-3.1.4.tgz#acc7fcb500f169b133d72c44ffea351d312d947c"
+  integrity sha512-6ScIzTA5rbgtaQTtQ/rshb5Gzgx4Wd5g+bRe3p08XaA/+otJ73fPc4qxF2LtV4LHhg9UN2OwVs0xMKUwGH4kbQ==
 
 eslint-plugin-flowtype-errors@^3.3.7:
   version "3.5.1"
