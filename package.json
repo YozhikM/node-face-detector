@@ -42,7 +42,7 @@
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-array-func": "^3.0.0",
     "eslint-plugin-flowtype": "^2.42.0",
-    "eslint-plugin-flowtype-errors": "^3.3.7",
+    "eslint-plugin-flowtype-errors": "^4.3.0",
     "eslint-plugin-immutable": "^1.0.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
